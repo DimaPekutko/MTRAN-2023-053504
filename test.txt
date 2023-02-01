@@ -1,0 +1,38 @@
+def test || -> int {    
+    a bool = 3.01 > 3.0 and 3.0 > 4.0;
+    [shown [bool_to_str a]];
+    some_flag bool = not false;
+    i int = 2;
+    loop {
+        if not some_flag ! -1;
+        def square |x int| -> int {
+            tmp_x int = x;
+            loop {
+                x = x + 1;
+                if x > 50 ! tmp_x*tmp_x;
+                next;
+            }
+        }
+        
+        i = i + [square i];
+        if i >= 50 stop;
+        else next;
+        i = 1000;
+    }
+    ! i;
+}
+
+ [shown [int_to_str [test]]];
+
+def fib_seq |n int| -> int {
+    f1 int = 1;
+    f2 int = 2;
+    loop i int, 0..n-2-1 {
+        sum int = f1 + f2;
+        f1 = f2;
+        f2 = sum;
+        [shown [int_to_str f2]];
+    }
+} 
+
+[fib_seq 25];
