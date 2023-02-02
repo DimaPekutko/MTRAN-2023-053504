@@ -187,6 +187,7 @@ class EvaluationLoop(TreeVisitor):
         func_symbol = scope.get_symbol(node.name)
         func = func_symbol.value
         args = [self.visit_node(arg) for arg in node.args]
+        print(f"call '{node.name}'")
         return func(*args)
 
     def visit_return(self, node):
@@ -203,13 +204,16 @@ class EvaluationLoop(TreeVisitor):
     def visit_block(self, node):
         prev_block_node = self.cur_block_node
         self.cur_block_node = node
+        
+        is_global_scope = self.get_scope() == self.scope_controller.get_global_scope()
 
         ret_value = None
 
         for stm in node.statements:
-            result = self.visit_node(stm)
-            if result != None:
-                ret_value = result
+            stm_result = self.visit_node(stm)
+
+            if stm_result != None and not is_global_scope:
+                ret_value = stm_result
                 break
 
         self.cur_block_node = prev_block_node
