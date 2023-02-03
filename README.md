@@ -1,4 +1,4 @@
-# Basic Interpreter in python
+# Basic Interpreter written in python
 ### It's a mix of python and c-based languages in one interpreted language with strong typization.
 
 ## Example
