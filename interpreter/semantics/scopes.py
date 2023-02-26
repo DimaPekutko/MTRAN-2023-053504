@@ -39,7 +39,8 @@ class SymbolTable():
         self.__symbols = initial_symbols
 
     def __repr__(self):
-        res_str = ""
+        res_str = "\n --- scope ---\n"
+
         for name, symbol in self.__symbols.items():
             res_str += f"\n{name} -> {type(symbol).__name__}"
         return res_str

@@ -35,5 +35,4 @@ INTRINSICS_LIST = [
     IntrinsicFunc("show", ANY_TYPE, [STR_TYPE], lambda x : print(x, end="")),
     IntrinsicFunc("shown", ANY_TYPE, [STR_TYPE], print),
     IntrinsicFunc("read", STR_TYPE, [STR_TYPE], input),
-    
 ]

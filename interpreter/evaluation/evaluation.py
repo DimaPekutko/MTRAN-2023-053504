@@ -4,6 +4,7 @@ from interpreter.error import *
 from interpreter.builtins import *
 from interpreter.semantics import *
 
+
 class EvaluationLoop(TreeVisitor):
 
     class BlockRetType(Enum):
@@ -28,7 +29,6 @@ class EvaluationLoop(TreeVisitor):
             STR_TYPE.name   : str,
             BOOL_TYPE.name  : bool
         }
-
         return conversion[type_name](value)
 
     def visit_literal(self, node):
@@ -167,7 +167,7 @@ class EvaluationLoop(TreeVisitor):
                 param_symbol = func_body_scope.get_symbol(node.params[i].name)
                 prev_call_params.append(param_symbol.value)
                 param_symbol.value = args[i]
-            
+
             # func body evaluation
             tmp_func_symbol = self.cur_func_symbol
             self.cur_func_symbol = func_symbol
@@ -187,7 +187,6 @@ class EvaluationLoop(TreeVisitor):
         func_symbol = scope.get_symbol(node.name)
         func = func_symbol.value
         args = [self.visit_node(arg) for arg in node.args]
-        print(f"call '{node.name}'")
         return func(*args)
 
     def visit_return(self, node):

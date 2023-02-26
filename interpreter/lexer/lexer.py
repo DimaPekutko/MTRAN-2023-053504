@@ -96,7 +96,7 @@ def tokenize_source(filename: str):
 
     if _string_token:
         syntax_error(
-            "Unclosed string literla found", f'"{_string_token.value}',
+            "Unclosed string literal found", f'"{_string_token.value}',
             _string_token.pos.row, _string_token.pos.col,_string_token.pos.filename
         )
 

@@ -1,38 +1,16 @@
-# types/vars
-a int; a = 3;
-b float = 2.0 + (-2.0) * 1.0 / 100.0;
-c bool = true or false;
-d str = "hello, world!";
-# conditions
-if a >= 3 or not b 
-    a = 4;
-else if a < 3 {
-    a = 5;
-    b = 2.8;
+
+def fib_seq |n int| -> int {
+    f1 int = 1;
+    f2 int = 2;
+    loop i int, 0..n-2-1 {
+        sum int = f1 + f2;
+        f1 = f2;
+        f2 = sum;
+        [shown [int_to_str f2]];
+    }
 }
-else { c = false; }
-# loops
-loop {  # infinite loop
-    a = a + 1;
-    if a > 42
-        stop; # break
-    else next; # continue
-}
-even_sum int = 0; 
-loop i int, 0..10, 2 {
-    even_sum = even_sum + i;
-}
-# functions
-def no_args_func || -> float {
-    ! 3.14; # return
-}
-def args_func |arg1 int, msg str| -> bool {
-    ! false;
-} 
-[args_func 2, "hello"]; # func call
-# builtins
-[shown "new line message"]; # print with new line
-[show "one line msg"]; # casual print
-[str_to_int "228"]; # one of the type cast functions
-[read "read value: "]; # read str from console
-# ... (check builtins/intrinsics.py)
+
+n int = [str_to_int [read "Your n value: "]];
+
+[fib_seq n];
+

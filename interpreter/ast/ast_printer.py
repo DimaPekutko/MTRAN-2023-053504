@@ -106,7 +106,7 @@ class AST_Printer(TreeVisitor):
             return
             
         length = (self.depth - 1) 
-        offset = "  " * length if length else ""
+        offset = "   " * length if length else ""
         print(f"{offset}{message}")
 
     def print(self, silent: bool = False):

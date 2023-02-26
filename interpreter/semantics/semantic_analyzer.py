@@ -98,13 +98,12 @@ class SemanticAnalyzer(TreeVisitor):
             TokenType.NOT_OP   : bool_type,
             TokenType.MINUS_OP : left_type,
         }
-
         return ret_type[op]
 
     def visit_var_decl(self, node):
         type_symbol = self.visit_node(node.type_node)
         var_symbol = Symbol_Var(node.name, type_symbol)
-
+        
         if node.value:
             rhs_type_symbol = self.visit_node(node.value)
             self.type_check(node, type_symbol, rhs_type_symbol, node.name)
