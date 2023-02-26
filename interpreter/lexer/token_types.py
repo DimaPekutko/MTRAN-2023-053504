@@ -96,3 +96,25 @@ TOKEN_TYPES_REGEXES = {
     TokenType.STR_LITERAL   : r"(?!x)x", # match nothing
     TokenType.EOF           : r"(?!x)x", # match nothing
 }
+
+
+TOKENS_GROUPS = {
+    "keywords": [
+        TokenType.IF_KWD, TokenType.ELSE_KWD, TokenType.IFELSE_KWD, TokenType.LOOP_KWD, TokenType.DEF_KWD,
+        TokenType.NEXT_KWD, TokenType.STOP_KWD
+    ],
+    "operators": [
+        TokenType.PLUS_OP, TokenType.MINUS_OP, TokenType.MULT_OP, TokenType.DIV_OP, TokenType.ASSIGN_OP,
+        TokenType.EQ_OP, TokenType.NEQ_OP, TokenType.AND_OP, TokenType.NOT_OP, TokenType.OR_OP,
+        TokenType.GT_OP, TokenType.GTE_OP, TokenType.LT_OP, TokenType.LTE_OP
+    ],
+    "marks": [
+        TokenType.RANGE_MARK, TokenType.EXCL_MARK, TokenType.RET_TYPE_MARK, TokenType.QUEST_MARK
+    ],
+    "literals": [
+        TokenType.INT_LITERAL, TokenType.FLOAT_LITERAL, TokenType.STR_LITERAL
+    ],
+    "identifiers": [
+        TokenType.IDENTIFIER
+    ]
+}
